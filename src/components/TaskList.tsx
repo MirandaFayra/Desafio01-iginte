@@ -40,10 +40,24 @@ export function TaskList() {
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    //5.Mapear todas as tasks 
+    const mappedTask = tasks.map(task => task.id === id ?{
+      //6. Compara o id, se o id for igual edita ela => isComplete está no input checkbox
+      ...task,
+      isComplete:
+    })
+
+    
   }
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
+    //7. Filtrar o estado com as tarefas e retornar todas as tasks que tem o id diferentes 
+    const taskFiltered = tasks.filter(task => task.id !== id)
+
+    //8. Estado retornado passa a ser a lista de tarfas filtradas
+    setTasks(taskFiltered)
+
   }
 
   return (

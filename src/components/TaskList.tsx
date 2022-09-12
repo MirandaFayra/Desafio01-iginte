@@ -44,10 +44,12 @@ export function TaskList() {
     const mappedTask = tasks.map(task => task.id === id ?{
       //6. Compara o id, se o id for igual edita ela => isComplete está no input checkbox
       ...task,
-      isComplete:
-    })
-
-    
+      //7. Pega a task antiga, sobreescreve e altera a propriedade
+      isComplete:!task.isComplete
+       
+    }:task)
+    //8. Estado passa a ser a lista de tarefas mapeadas 
+    setTasks(mappedTask)
   }
 
   function handleRemoveTask(id: number) {
